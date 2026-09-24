@@ -45,8 +45,9 @@ jobs:
           ssh -i ec2-key.pem -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << EOF
   
             if ! command -v docker > /dev/null; then
-              curl -fsSL https://get.docker.com | sudo sh
-              sudo usermod -aG docker ${{ secrets.EC2_USER }}
+              sudo apt-get update
+              sudo apt-get install -y docker.io
+              sudo systemctl enable --now docker
             fi
 
       
