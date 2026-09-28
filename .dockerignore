@@ -1,6 +1,7 @@
 node_modules
 .env
-.git
-.github
 *.pem
-npm-debug.log
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
